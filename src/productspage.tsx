@@ -1,4 +1,6 @@
 import * as React from "react";
+import {Link} from "react-router-dom";
+
 import {IProduct, products} from "./productsdata";
 
 interface IState {
@@ -27,7 +29,9 @@ class ProductsPage extends React.Component<{}, IState> {
                     {/* 这里使用map函数进行迭代。 */}
                     {this.state.products.map(product => (
                         <li key={product.id} className="product-list-item">
-                            {product.name}
+                            <Link to={`/products/${product.id}`}>
+                              {product.name}
+                            </Link>
                         </li>
                     ))}
                 </ul>
