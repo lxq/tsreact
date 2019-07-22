@@ -12,6 +12,7 @@ const Routes: React.SFC = () => {
             <div>
                 <Header />
                 {/* path属性对应URL，如果URL没有对应path路径则渲染的是空页面。 */}
+                {/* exact 属性控制组件是否呈现。 */}
                 <Route exact={true} path="/products" component={ProductsPage} />
                 <Route path="/products/:id" component={ProductPage} />
                 <Route path="/admin" component={AdminPage} />
