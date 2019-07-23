@@ -6,8 +6,10 @@ import ProductsPage from "./productspage";
 import Header from "./header";
 import ProductPage from "./ProdectPage";
 import NotFoundPage from "./NotFoundPage";
+import LoginPage from "./LoginPage";
 
 const Routes: React.SFC = () => {
+    const [loggedIn, setLoggedIn] = React.useState(false);
     return (
         <Router>
             <div>
@@ -19,7 +21,10 @@ const Routes: React.SFC = () => {
                     {/* exact 属性表示URL与path是否完全匹配。 */}
                     <Route exact={true} path="/products" component={ProductsPage} />
                     <Route path="/products/:id" component={ProductPage} />
-                    <Route path="/admin" component={AdminPage} />
+                    <Route path="/admin">
+                        {loggedIn?<AdminPage/>:<Redirect to="/login"/>}
+                    </Route>
+                    <Route path="/login" component={LoginPage} />
                     <Route component={NotFoundPage} />
                 </Switch>
             </div>
