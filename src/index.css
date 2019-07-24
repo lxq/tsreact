@@ -55,3 +55,7 @@ code {
 .header-link-active {
   border-bottom: #ebebee solid 2px;
 }
+.search-container {
+  text-align: right;
+  margin-bottom: -25px;
+}
